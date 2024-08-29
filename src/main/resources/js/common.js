@@ -23,7 +23,7 @@ window.Vcomment = Vcomment
  *
  * @author <a href="http://vanessa.b3log.org">Liyuan Li</a>
  * @author <a href="http://88250.b3log.org">Liang Ding</a>
- * @version 2.3.2.0, Jun 19, 2020
+ * @version 2.3.3.0, May 24, 2022
  */
 
 /**
@@ -170,11 +170,13 @@ window.Util = {
    */
   parseMarkdown: function () {
     Vcomment.parseMarkdown({
+      cdn: Label.staticServePath + "/js/lib/vditor",
       lang: Label.langLabel,
       lineNumber: Label.showCodeBlockLn,
       hljsEnable: !Label.luteAvailable,
       hljsStyle: Label.hljsStyle,
-      speech: Label.speech
+      speech: Label.speech,
+      theme: {}
     })
   },
   /**
@@ -304,18 +306,25 @@ window.Util = {
     }))
   },
   loadVditor: function (cb) {
-    $.ajax({
-      method: 'GET',
-      url: 'https://cdn.jsdelivr.net/npm/vditor@3.8.4/dist/index.min.js',
-      dataType: 'script',
-      cache: true,
-      success: () => {
-        Util.init()
-        if (cb) {
-          cb()
-        }
-      },
-    })
+    if (typeof Vditor === "undefined") {
+      $.ajax({
+        method: 'GET',
+        url: `${Label.staticServePath}/js/lib/vditor/dist/index.min.js?v=3.9.7`,
+        dataType: 'script',
+        cache: true,
+        success: () => {
+          Util.init()
+          if (cb) {
+            cb()
+          }
+        },
+      })
+    } else {
+      Util.init()
+      if (cb) {
+        cb()
+      }
+    }
   },
   skinPreview: () => {
     if (location.pathname === '/admin-index.do') {

@@ -43,6 +43,7 @@
     <include path="/js/**/*.svg"/>
     <include path="/js/**/*.ttf"/>
     <include path="/js/**/*.woff"/>
+    <include path="/js/**/*.json"/>
 
     <include path="/skins/**.css"/>
     <include path="/skins/**/*.css"/>
@@ -62,12 +63,12 @@
     <include path="/skins/**/*.woff"/>
     <include path="/skins/**/*.cur"/>
 
-    <include path="/scss/**.css"/>
-    <include path="/scss/**/*.css"/>
-    <include path="/scss/fonts/*.eot"/>
-    <include path="/scss/fonts/*.svg"/>
-    <include path="/scss/fonts/*.ttf"/>
-    <include path="/scss/fonts/*.woff"/>
+    <include path="/less/**.css"/>
+    <include path="/less/**/*.css"/>
+    <include path="/less/fonts/*.eot"/>
+    <include path="/less/fonts/*.svg"/>
+    <include path="/less/fonts/*.ttf"/>
+    <include path="/less/fonts/*.woff"/>
 
     <include path="/images/**.png"/>
     <include path="/images/**/*.png"/>
